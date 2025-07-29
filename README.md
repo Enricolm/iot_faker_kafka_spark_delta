@@ -49,7 +49,7 @@ Executar o processo por completo:
 
 ## **👤 Autor**
 
-Enrico Lopes Malachini
-📧 E-mail: rico.malachini@gmail.com
-🔗 GitHub: github.com/Enricolm
-🔗 LinkedIn: [linkedin.com/in/enrico-malachini](https://www.linkedin.com/in/enrico-malachini/)
+-Enrico Lopes Malachini
+-📧 E-mail: rico.malachini@gmail.com
+-🔗 GitHub: github.com/Enricolm
+-🔗 LinkedIn: [linkedin.com/in/enrico-malachini](https://www.linkedin.com/in/enrico-malachini/)
