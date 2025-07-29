@@ -1,0 +1,75 @@
+version: "3.8"
+
+services:
+  zookeeper:
+    image: bitnami/zookeeper:3.8
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+
+  kafka:
+    image: bitnami/kafka:3.4
+    container_name: kafka
+    ports:
+      - 29092:9092
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,PLAINTEXT_HOST://0.0.0.0:29092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+    healthcheck:
+      test: ["CMD-SHELL", "ps aux | grep -q '[k]afka.Kafka'"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    depends_on:
+      - zookeeper
+
+  iot-simulator:
+    build: ./iot_simulator
+    container_name: iot-simulator
+    ports:
+      - "5000:5000"
+    depends_on:
+      - kafka
+    volumes:
+      - ./iot_simulator:/iot_simulator
+
+  kafka-app:
+    build: ./app
+    container_name: kafka-app
+    depends_on:
+      kafka:
+        condition: service_healthy
+    volumes:
+      - ./app:/app
+      - ./app/kafka/error:/tmp/error/producer
+    working_dir: /app/kafka
+    environment:
+      - PYTHONPATH=/app
+    command: ["python", "producer.py"]
+
+  pyspark-consumer:
+    image: bitnami/spark:3.4.1
+    user: root
+    container_name: pyspark-consumer
+    ports:
+      - "4040:4040"
+    depends_on:
+      - kafka-app
+    volumes:
+      - ./app/spark/error:/log/error/consumer
+      - ./app:/app
+      - ./delta:/data/delta
+    working_dir: /app/spark
+    environment:
+      - PYTHONPATH=/app
+    command: [
+      "spark-submit",
+      "--packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.1,io.delta:delta-core_2.12:2.4.0",
+      "consumer.py"
+    ]
