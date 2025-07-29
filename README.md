@@ -38,12 +38,12 @@ Ele simula dispositivos IoT que enviam dados para um tópico Kafka, que são con
 
 Executar o processo por completo:
     
-    ```PowerShell
+    
     docker compose up -d
-    ```
+    
 
 ## **Validar resultados**
 
-    ```PowerShell
+
     docker exec -it pyspark-consumer spark-submit --packages io.delta:delta-core_2.12:2.4.0 /app/spark/consultando_dados.py
-    ```
+
