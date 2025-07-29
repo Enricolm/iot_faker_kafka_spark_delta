@@ -31,7 +31,7 @@ Ele simula dispositivos IoT que enviam dados para um tópico Kafka, que são con
 - **Apache Kafka** – Mensageria e ingestão de dados em tempo real.
 - **Apache Spark (PySpark)** – Processamento distribuído em streaming.
 - **Delta Lake** – Armazenamento confiável com suporte ACID.
-- **Docker Compose** – Orquestração dos containers (Kafka, Zookeeper, Spark, etc.).
+- **Docker Compose** – Orquestração dos containers (Kafka, Zookeeper, Spark).
 - **Python (Faker)** – Geração de dados IoT simulados.
 
 ## **⚡ Execução do Projeto**
