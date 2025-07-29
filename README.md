@@ -47,3 +47,9 @@ Executar o processo por completo:
 
     docker exec -it pyspark-consumer spark-submit --packages io.delta:delta-core_2.12:2.4.0 /app/spark/consultando_dados.py
 
+## **👤 Autor**
+
+Enrico Lopes Malachini
+📧 E-mail: rico.malachini@gmail.com
+🔗 GitHub: github.com/Enricolm
+🔗 LinkedIn: [linkedin.com/in/enrico-malachini](https://www.linkedin.com/in/enrico-malachini/)
