@@ -34,8 +34,9 @@ Ele simula dispositivos IoT que enviam dados para um tópico Kafka, que são con
 - **Docker Compose** – Orquestração dos containers (Kafka, Zookeeper, Spark).
 - **Python (Faker)** – Geração de dados IoT simulados.
 
-## ** Estrutura de pasta**
+## Estrutura de pasta
 
+```bash
 IOT_FAKER_KAFKA_SPARK_DELTA/
 ├── app/
 │   ├── kafka/                   
@@ -62,7 +63,7 @@ IOT_FAKER_KAFKA_SPARK_DELTA/
 ├── .gitignore
 ├── docker-compose.yml
 └── README.md
-
+```
 
 
 ## **⚡ Execução do Projeto**
