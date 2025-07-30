@@ -34,6 +34,37 @@ Ele simula dispositivos IoT que enviam dados para um tópico Kafka, que são con
 - **Docker Compose** – Orquestração dos containers (Kafka, Zookeeper, Spark).
 - **Python (Faker)** – Geração de dados IoT simulados.
 
+## ** Estrutura de pasta**
+
+IOT_FAKER_KAFKA_SPARK_DELTA/
+├── app/
+│   ├── kafka/                   
+│   │   ├── error/
+│   │   └── producer.py
+│   ├── service/                  
+│   │   ├── __pycache__/
+│   │   ├── Exception.py
+│   │   └── LoggerService.py
+│   ├── spark/                    
+│   │   ├── error/
+│   │   ├── consultando_dados.py
+│   │   ├── consumer.py
+│   │   ├── Dockerfile
+│   │   └── requirements.txt
+├── delta/
+│   └── bronze/
+│       └── iot_emulado/         
+├── iot_simulator/               
+│   ├── __pycache__/
+│   ├── Dockerfile
+│   ├── main.py
+│   └── requirements.txt
+├── .gitignore
+├── docker-compose.yml
+└── README.md
+
+
+
 ## **⚡ Execução do Projeto**
 
 Executar o processo por completo:
@@ -41,11 +72,6 @@ Executar o processo por completo:
     
     docker compose up --build -d
     
-
-## **Validar resultados**
-
-
-    docker exec -it pyspark-consumer spark-submit --packages io.delta:delta-core_2.12:2.4.0 /app/spark/consultando_dados.py
 
 ## **👤 Autor**
 
