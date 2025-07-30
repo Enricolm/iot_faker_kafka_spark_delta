@@ -39,7 +39,7 @@ Ele simula dispositivos IoT que enviam dados para um tópico Kafka, que são con
 Executar o processo por completo:
     
     
-    docker compose up -d
+    docker compose up --build -d
     
 
 ## **Validar resultados**
