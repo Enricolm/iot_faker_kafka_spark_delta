@@ -1,3 +1,8 @@
+## ** PROJETO 1**
+
+
+
+## ** PROJETO 2**
 ## **📜 Descrição do Projeto**
 
 Este projeto demonstra uma arquitetura de **streaming de dados em tempo real** utilizando **Kafka**, **PySpark (Structured Streaming)** e **Delta Lake**.  
