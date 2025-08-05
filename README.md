@@ -53,6 +53,10 @@ diario_de_bordo/
 
 Garantir o controle e a rastreabilidade de dados de transporte, permitindo análises confiáveis mesmo em ambientes com dados incompletos ou inconsistentes.
 
+Notebook: https://dbc-35f07cc0-9f86.cloud.databricks.com/login.html?next_url=%2Feditor%2Fnotebooks%2F3406324339502378%3Fo%3D2187747513666326&tuuid=89c103bb-0583-466f-9b17-9f0d8efcd0a2#command/6501943768248975
+
+github: https://github.com/Enricolm/diario_de_bordo/tree/main
+
 
 ## PROJETO 2
 ## **📜 Descrição do Projeto**
