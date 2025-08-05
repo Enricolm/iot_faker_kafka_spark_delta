@@ -73,3 +73,23 @@ services:
       "--packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.1,io.delta:delta-core_2.12:2.4.0",
       "consumer.py"
     ]
+
+  # pyspark-validate:
+  #   image: bitnami/spark:3.4.1
+  #   user: root
+  #   container_name: pyspark-validate
+  #   ports:
+  #     - "4041:4041"
+  #   volumes:
+  #     - ./app:/app
+  #     - ./delta:/data/delta
+  #   working_dir: /app/spark
+  #   environment:
+  #     - PYTHONPATH=/app
+  #   command: [
+  #     "spark-submit",
+  #     "--packages", "io.delta:delta-core_2.12:2.4.0",
+  #     "consultando_dados.py"
+  #   ]
+
+    
